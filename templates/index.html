@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>20 Школа города Волжский</title>
+    <link rel="stylesheet" href="static/styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.1/gsap.min.js"></script>
+</head>
+<body>
+    <div class="background"></div>
+    <div class="top-bar">
+        <div class="school-name">
+            <a href="/" id="home-link">20 школа города Волжский</a>
+        </div>
+        <div class="nav-container">
+            <div class="nav-links">
+                <a href="#">Главная</a>
+                <a href="#">Новости</a>
+                <a href="#">Контакты</a>
+            </div>
+            <div class="menu-icon">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </div>
+
+    <!--каталог-->
+    <div class="sidebar">
+        <ul>
+            <li class="menu-item" id="about-school">
+                О Школе
+                <div class="arrow">→</div>
+                <ul class="dropdown">
+                    <li><a href="/logoped">Логопед</a></li>
+                    <li><a href="/psychologist">Кабинет психолога</a></li>
+                    <li><a href="/contacts">Контакты</a></li>
+                </ul>
+            </li>
+            <li class="menu-item" id="for-students">
+                Ученикам
+                <div class="arrow">→</div>
+                <ul class="dropdown">
+                    <li><a href="#" id="legal-procedures">Правоприменительные процедуры</a></li>
+                    <li><a href="#" id="vsosh">ВСОШ</a></li>
+                    <li><a href="/pdd">ПДД</a></li>
+                </ul>
+            </li>
+            <li class="menu-item" id="for-parents">
+                Родителям
+                <div class="arrow">→</div>
+                <ul class="dropdown">
+                    <li><a href="#" id="child-safety">Информационная безопасность детей</a></li>
+                    <li><a href="#" id="anti-drugs">Несколько правил, позволяющих предотвратить потребление психоактивных веществ вашим ребенком</a></li>
+                    <li><a href="#" id="prevention">Профилактика</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <div class="main-container">
+        <h1 class="main-title">Главная</h1>
+        <div class="content">
+            <p>Добро пожаловать в 20 школу города Волжский! Здесь вы найдете всю необходимую информацию о школе.</p>
+        </div>
+        <div class="image-container">
+            <img src="static/school_image.jpg" alt="Школа" class="rounded-image">
+        </div>
+    </div>
+
+    <!--скрипт не трогать!-->
+    <script src="static/script.js"></script>
+</body>
+</html>
