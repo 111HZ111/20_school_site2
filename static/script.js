@@ -51,10 +51,10 @@ document.addEventListener("DOMContentLoaded", function () {
         mainContainer.innerHTML = `<h1>${title}</h1><div class="content">${content}</div>`;
     }
 
-    document.querySelector(".school-name a").addEventListener("click", function (event) {
-        event.preventDefault();
-        updateMainContent("Главная", "<p>Добро пожаловать в 20 школу города Волжский!</p>");
-    });
+    //document.querySelector(".school-name a").addEventListener("click", function (event) {
+        //event.preventDefault();
+        //updateMainContent("Главная", "<p>Добро пожаловать в 20 школу города Волжский!</p>");
+    //});
 
     document.getElementById("child-safety").addEventListener("click", function (event) {
         event.preventDefault();

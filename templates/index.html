@@ -16,9 +16,9 @@
         </div>
         <div class="nav-container">
             <div class="nav-links">
-                <a href="#">Главная</a>
-                <a href="#">Новости</a>
-                <a href="#">Контакты</a>
+                <a href="/">Главная</a>
+                <a href="/">Новости</a>
+                <a href="#">Сведения</a>
             </div>
             <div class="menu-icon">
                 <span></span>
@@ -32,32 +32,32 @@
     <div class="sidebar">
         <ul>
             <li class="menu-item" id="about-school">
-                О Школе
-                <div class="arrow">→</div>
+                •О Школе
+                <div class="arrow">ᐅ</div>
                 <ul class="dropdown">
-                    <li><a href="/logoped">Логопед</a></li>
-                    <li><a href="/psychologist">Кабинет психолога</a></li>
-                    <li><a href="/contacts">Контакты</a></li>
+                    <a href="/logoped"><li>Логопед</li></a>
+                    <a href="/psychologist"><li>Кабинет психолога</li></a>
+                    <a href="/contacts"><li>Контакты</li></a>
                 </ul>
             </li>
             <li class="menu-item" id="for-students">
-                Ученикам
-                <div class="arrow">→</div>
+                •Ученикам
+                <div class="arrow">ᐅ</div>
                 <ul class="dropdown">
-                    <li><a href="#" id="legal-procedures">Правоприменительные процедуры</a></li>
-                    <li><a href="#" id="vsosh">ВСОШ</a></li>
-                    <li><a href="/pdd">ПДД</a></li>
+                    <a href="#" id="legal-procedures"><li>Правоприменительные процедуры</li></a>
+                    <a href="#" id="vsosh"><li>ВСОШ</li></a>
+                    <a href="/pdd"><li>ПДД</li></a>
                 </ul>
             </li>
             <li class="menu-item" id="for-parents">
-                Родителям
-                <div class="arrow">→</div>
+                •Родителям
+                <div class="arrow">ᐅ</div>
                 <ul class="dropdown">
-                    <li><a href="#" id="child-safety">Информационная безопасность детей</a></li>
-                    <li><a href="#" id="anti-drugs">Несколько правил, позволяющих предотвратить потребление психоактивных веществ вашим ребенком</a></li>
-                    <li><a href="#" id="prevention">Профилактика</a></li>
+                    <a href="/cybersecurity"><li>Информационная безопасность детей</li></a>
+                    <a href="/drug_prevention"><li>Несколько правил, позволяющих предотвратить потребление психоактивных веществ вашим ребенком</li></a>
+                    <a href="/prevention"><li>Профилактика</li></a>
                 </ul>
-            </li>
+            </li>            
         </ul>
     </div>
     <div class="main-container">
@@ -72,5 +72,95 @@
 
     <!--скрипт не трогать!-->
     <script src="static/script.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            function updateMainContent(title, content) {
+                const mainContainer = document.querySelector(".main-container");
+                mainContainer.innerHTML = `<h1>${title}</h1><div class="content">${content}</div>`;
+            }
+        
+            document.querySelectorAll("#legal-procedures, #vsosh").forEach(item => {
+                item.addEventListener("click", function (event) {
+                    event.preventDefault();
+                    if (this.id === "legal-procedures") {
+                        updateMainContent("Правоприменительные процедуры", `
+                            <p>Под правоприменительными процедурами (действиями) понимается совокупность последовательно осуществляемых юридически значимых действий с участием детей либо в их интересах, 
+            требующих документального оформления и реализуемых уполномоченными на то государственными органами, органами местного самоуправления и (или) их должностными лицами, 
+            а также подведомственными названным органам организациями (учреждениями).</p>
+            <p>⠀</p>
+            <p>Информация о предоставленной помощи и проведении социальной реабилитации детей, с участием которых или в интересах которых осуществлялись правоприменительные процедуры (действия).</p>
+                        `);
+                    } else if (this.id === "vsosh") {
+                        updateMainContent("ВСОШ", `
+                            <p><strong>Порядок проведения ВСОШ</strong></p>
+                            <ul>
+                                <li>Методические рекомендации</li>
+                                <li>Изменение в порядок проведения ВСОШ</li>
+                                <li>Приказ управления образования на 2024-2025 уч. год</li>
+                            </ul>
+                        `);
+                    }
+                });
+            });
+        });
+        </script>
+        
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const menuItems = document.querySelectorAll(".menu-item");
+        
+            menuItems.forEach(item => {
+                item.addEventListener("click", function (event) {
+                    event.stopPropagation();
+        
+                    menuItems.forEach(otherItem => {
+                        if (otherItem !== item) {
+                            const otherDropdown = otherItem.querySelector(".dropdown");
+                            const otherArrow = otherItem.querySelector(".arrow");
+        
+                            if (otherDropdown) {
+                                otherDropdown.style.display = "none";
+                                otherItem.classList.remove("active");
+                            }
+                            if (otherArrow) {
+                                otherArrow.style.transform = "rotate(0deg)";
+                            }
+                        }
+                    });
+                    const dropdown = item.querySelector(".dropdown");
+                    const arrow = item.querySelector(".arrow");
+        
+                    if (dropdown) {
+                        if (dropdown.style.display === "block") {
+                            dropdown.style.display = "none";
+                            item.classList.remove("active");
+                            arrow.style.transform = "rotate(0deg)";
+                        } else {
+                            dropdown.style.display = "block";
+                            item.classList.add("active");
+                            arrow.style.transform = "rotate(90deg)";
+                        }
+                    }
+                });
+            });
+            document.addEventListener("click", function (event) {
+                if (!event.target.closest(".menu-item")) {
+                    menuItems.forEach(item => {
+                        const dropdown = item.querySelector(".dropdown");
+                        const arrow = item.querySelector(".arrow");
+        
+                        if (dropdown) {
+                            dropdown.style.display = "none";
+                            item.classList.remove("active");
+                        }
+                        if (arrow) {
+                            arrow.style.transform = "rotate(0deg)";
+                        }
+                    });
+                }
+            });
+        });
+        </script>
+                
 </body>
 </html>

@@ -22,5 +22,17 @@ def contacts():
 def pdd():
     return render_template('pdd.html')
 
+@app.route('/cybersecurity')
+def cybersecurity():
+    return render_template('cybersecurity.html')
+
+@app.route('/drug_prevention')
+def drug_prevention():
+    return render_template('drug_prevention.html')
+
+@app.route('/prevention')
+def prevention():
+    return render_template('prevention.html')
+
 if __name__ == '__main__':
     app.run(debug=True)
